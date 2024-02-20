@@ -31,6 +31,9 @@
 
 #include <linux/version.h>
 
+/* Backport for v4l2_link_freq_to_bitmap */
+#include <media/v4l2-link-freq.h>
+
 /* Chip ID */
 #define IMX283_REG_CHIP_ID		CCI_REG8(0x3000)
 #define IMX283_CHIP_ID			0x0b	// Default power on state
