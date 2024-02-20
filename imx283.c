@@ -29,6 +29,8 @@
 #include <media/v4l2-fwnode.h>
 #include <media/v4l2-mediabus.h>
 
+#include <linux/version.h>
+
 /* Chip ID */
 #define IMX283_REG_CHIP_ID		CCI_REG8(0x3000)
 #define IMX283_CHIP_ID			0x0b	// Default power on state
@@ -1588,7 +1590,11 @@ static struct i2c_driver imx283_i2c_driver = {
 		.of_match_table	= imx283_dt_ids,
 		.pm = &imx283_pm_ops,
 	},
+#if LINUX_VERSION_CODE <= KERNEL_VERSION(6,6,0)
+	.probe_new = imx283_probe,
+#else	
 	.probe = imx283_probe,
+#endif
 	.remove = imx283_remove,
 };
 
