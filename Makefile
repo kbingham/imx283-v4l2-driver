@@ -1,6 +1,7 @@
-obj-m += v4l2-cci.o
-obj-m += v4l2-link-freq.o
 obj-m += imx283.o
+
+imx283-objs += v4l2-cci.o
+imx283-objs += v4l2-link-freq.o
 
 ccflags-y += -I$(PWD)/include
 
